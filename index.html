@@ -504,7 +504,7 @@
 
     @media (max-width: 768px) {
       /* Base */
-      .container { padding: 0 20px; }
+      .container { padding: 0 24px; }
       .section { padding: 64px 0; }
       .section-title { font-size: 1.6rem; }
       .section-desc { font-size: 0.95rem; margin-bottom: 32px; }
@@ -516,7 +516,7 @@
       .nav-links.open {
         display: flex; flex-direction: column;
         position: absolute; top: 56px; left: 0; right: 0;
-        background: #fff; padding: 16px 20px; gap: 4px;
+        background: #fff; padding: 16px 24px; gap: 4px;
         box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       }
       .nav-links.open li { width: 100%; }
@@ -572,15 +572,16 @@
       }
       .flow-step::before {
         content: '';
-        position: absolute; left: 27px; top: 56px; bottom: 0;
+        position: absolute; left: 24px; top: 50px; bottom: 0;
         width: 2px; background: rgba(108,92,231,0.2);
       }
       .flow-step:last-child::before { display: none; }
       .flow-dot {
-        width: 56px; height: 56px; min-width: 56px;
-        border-radius: 14px; margin: 0; font-size: 1.2rem;
+        width: 48px; height: 48px; min-width: 48px;
+        border-radius: 12px; margin: 0; font-size: 1.1rem;
       }
-      .flow-step-tag { margin-bottom: 2px; }
+      .flow-step-content { min-width: 0; flex: 1; }
+      .flow-step-tag { margin-bottom: 2px; font-size: 0.65rem; letter-spacing: 1px; }
       .flow-step h4 { font-size: 0.95rem; margin-bottom: 4px; }
       .flow-step p { font-size: 0.82rem; }
       .flow-note { padding: 16px 20px; font-size: 0.85rem; }
@@ -643,7 +644,7 @@
 
     /* Extra small screens */
     @media (max-width: 380px) {
-      .container { padding: 0 16px; }
+      .container { padding: 0 24px; }
       .hero h1 { font-size: 1.55rem; }
       .hero-stat-value { font-size: 1.3rem; }
       .section-title { font-size: 1.4rem; }
@@ -777,33 +778,43 @@
     <div class="flow-track">
       <div class="flow-step fade-up">
         <div class="flow-dot">📥</div>
-        <div class="flow-step-tag">INPUT</div>
-        <h4>간편 데이터 연동</h4>
-        <p>스토어 URL 및 정산 데이터 업로드</p>
+        <div class="flow-step-content">
+          <div class="flow-step-tag">INPUT</div>
+          <h4>간편 데이터 연동</h4>
+          <p>스토어 URL 및 정산 데이터 업로드</p>
+        </div>
       </div>
       <div class="flow-step fade-up">
         <div class="flow-dot">🔬</div>
-        <div class="flow-step-tag">DIAGNOSE</div>
-        <h4>AI 객관적 진단</h4>
-        <p>업종별 벤치마크 DB 기반 경쟁 스토어 비교 분석</p>
+        <div class="flow-step-content">
+          <div class="flow-step-tag">DIAGNOSE</div>
+          <h4>AI 객관적 진단</h4>
+          <p>업종별 벤치마크 DB 기반 경쟁 스토어 비교 분석</p>
+        </div>
       </div>
       <div class="flow-step fade-up">
         <div class="flow-dot">📋</div>
-        <div class="flow-step-tag">ANALYZE</div>
-        <h4>진단 리포트 발급</h4>
-        <p>실시간 핵심 과제 도출 및 최적의 AI 솔루션 매칭</p>
+        <div class="flow-step-content">
+          <div class="flow-step-tag">ANALYZE</div>
+          <h4>진단 리포트 발급</h4>
+          <p>실시간 핵심 과제 도출 및 최적의 AI 솔루션 매칭</p>
+        </div>
       </div>
       <div class="flow-step fade-up">
         <div class="flow-dot">🚀</div>
-        <div class="flow-step-tag">EXECUTE</div>
-        <h4>AI 솔루션 실행</h4>
-        <p>검증된 기성 솔루션 즉시 적용 및 성과 개선</p>
+        <div class="flow-step-content">
+          <div class="flow-step-tag">EXECUTE</div>
+          <h4>AI 솔루션 실행</h4>
+          <p>검증된 기성 솔루션 즉시 적용 및 성과 개선</p>
+        </div>
       </div>
       <div class="flow-step fade-up">
         <div class="flow-dot">📈</div>
-        <div class="flow-step-tag">SCALE</div>
-        <h4>AX 컨설팅 연계</h4>
-        <p>맞춤형 고도화 희망 시 전문 컨설턴트 연결</p>
+        <div class="flow-step-content">
+          <div class="flow-step-tag">SCALE</div>
+          <h4>AX 컨설팅 연계</h4>
+          <p>맞춤형 고도화 희망 시 전문 컨설턴트 연결</p>
+        </div>
       </div>
     </div>
     <div class="flow-note fade-up">
@@ -918,22 +929,22 @@
       <div class="service-visual">
         <div class="plugin-grid">
           <div class="plugin-card">
-            <img class="plugin-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Naver_logo_initial.svg/600px-Naver_logo_initial.svg.png" alt="네이버 로고">
+            <img class="plugin-logo" src="assets/logos/naver.svg" alt="네이버 로고">
             <div class="plugin-name">네이버</div>
             <div class="plugin-desc">상품 설명 자동 생성 · 키워드 최적화<br>리뷰 관리 · 광고 효율 분석</div>
           </div>
           <div class="plugin-card">
-            <img class="plugin-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Coupang_logo.svg/600px-Coupang_logo.svg.png" alt="쿠팡 로고">
+            <img class="plugin-logo" src="assets/logos/coupang.svg" alt="쿠팡 로고">
             <div class="plugin-name">쿠팡</div>
             <div class="plugin-desc">판매 예측 · 재고 자동 관리<br>가격 경쟁력 분석</div>
           </div>
           <div class="plugin-card">
-            <img class="plugin-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/KakaoTalk_logo.svg/600px-KakaoTalk_logo.svg.png" alt="카카오 로고">
+            <img class="plugin-logo" src="assets/logos/kakao.svg" alt="카카오 로고">
             <div class="plugin-name">카카오</div>
             <div class="plugin-desc">고객 문의 자동 응대 · 알림톡<br>단골 고객 관리</div>
           </div>
           <div class="plugin-card">
-            <img class="plugin-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/600px-2021_Facebook_icon.svg.png" alt="메타 로고">
+            <img class="plugin-logo" src="assets/logos/meta.svg" alt="메타 로고">
             <div class="plugin-name">메타</div>
             <div class="plugin-desc">광고 소재 자동 생성 · 타깃 분석<br>광고 예산 최적화</div>
           </div>
