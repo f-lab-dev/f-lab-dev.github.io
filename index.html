@@ -18,9 +18,14 @@
       background: #ffffff;
       line-height: 1.7;
       overflow-x: hidden;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      letter-spacing: -0.01em;
     }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
+    h1, h2, h3 { text-wrap: balance; }
+    .mobile-br { display: none; }
 
     /* ── Utility ── */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -507,7 +512,9 @@
       .container { padding: 0 24px; }
       .section { padding: 64px 0; }
       .section-title { font-size: 1.6rem; }
-      .section-desc { font-size: 0.95rem; margin-bottom: 32px; }
+      .section-desc { font-size: 0.95rem; margin-bottom: 32px; line-height: 1.75; }
+      .mobile-br { display: inline; }
+      p, .pain-card p, .feature-card p, .diff-card p, .flow-step p { line-height: 1.75; }
 
       /* Nav */
       .nav-inner { height: 56px; }
@@ -690,7 +697,7 @@
   <div class="container hero-content">
     <div class="hero-badge">소상공인 AI Transformation</div>
     <h1>데이터는 흩어져 있고,<br>성장은 막막할 때.<br><span>AI가 답을 찾아드립니다.</span></h1>
-    <p class="hero-sub">스토어 URL과 정산 데이터만 입력하면, AI가 자동으로 진단하고 플랫폼별 맞춤 솔루션을 즉시 실행합니다. 단순 분석을 넘어 실행까지 책임지는 소상공인 맞춤형 AX 솔루션.</p>
+    <p class="hero-sub">스토어 URL과 정산 데이터만 입력하면,<br class="mobile-br"> AI가 자동으로 진단하고<br class="mobile-br"> 플랫폼별 맞춤 솔루션을 즉시 실행합니다.<br class="mobile-br"> 단순 분석을 넘어 실행까지 책임지는<br class="mobile-br"> 소상공인 맞춤형 AX 솔루션.</p>
     <div class="hero-actions">
       <a href="https://vvd.bz/bg8v" class="btn-primary" target="_blank" rel="noopener" style="display:inline-block;">무료 진단 시작하기</a>
       <button class="btn-outline" onclick="document.getElementById('flow').scrollIntoView({behavior:'smooth'})">서비스 플로우 보기</button>
@@ -717,22 +724,22 @@
   <div class="container">
     <div class="section-label">PAIN POINT</div>
     <h2 class="section-title fade-up">소상공인이 매일 겪는<br><span class="highlight">핵심 고민</span></h2>
-    <p class="section-desc fade-up">여러 플랫폼을 운영하며 데이터를 따로 확인하고, 개선점을 몰라 막막했던 경험. 이제 AI가 해결합니다.</p>
+    <p class="section-desc fade-up">여러 플랫폼을 운영하며<br class="mobile-br"> 데이터를 따로 확인하고,<br class="mobile-br"> 개선점을 몰라 막막했던 경험.<br class="mobile-br"> 이제 AI가 해결합니다.</p>
     <div class="pain-grid">
       <div class="pain-card fade-up">
         <div class="pain-icon">📊</div>
         <h3>흩어진 데이터</h3>
-        <p>네이버·쿠팡·카카오·메타, 각 플랫폼마다 따로 로그인해서 매출을 확인해야 하는 번거로움</p>
+        <p>네이버·쿠팡·카카오·메타,<br class="mobile-br"> 각 플랫폼마다 따로 로그인해서<br class="mobile-br"> 매출을 확인해야 하는 번거로움</p>
       </div>
       <div class="pain-card fade-up">
         <div class="pain-icon">🔍</div>
         <h3>막연한 개선 방향</h3>
-        <p>매출이 정체되었는데, 상품·가격·리뷰·키워드 중 어디부터 손대야 하는지 감이 안 잡히는 답답함</p>
+        <p>매출이 정체되었는데,<br class="mobile-br"> 상품·가격·리뷰·키워드 중<br class="mobile-br"> 어디부터 손대야 하는지<br class="mobile-br"> 감이 안 잡히는 답답함</p>
       </div>
       <div class="pain-card fade-up">
         <div class="pain-icon">⏰</div>
         <h3>실행의 장벽</h3>
-        <p>컨설팅 받아도 실행은 별도. 키워드 최적화, 리뷰 관리, 광고 세팅까지 일일이 직접 해야 하는 현실</p>
+        <p>컨설팅 받아도 실행은 별도.<br class="mobile-br"> 키워드 최적화, 리뷰 관리,<br class="mobile-br"> 광고 세팅까지<br class="mobile-br"> 일일이 직접 해야 하는 현실</p>
       </div>
     </div>
   </div>
@@ -835,7 +842,7 @@
       <div class="service-text">
         <div class="service-num">SERVICE 01</div>
         <h3>내 가게 자동 진단</h3>
-        <p>스토어 URL과 정산 엑셀만 업로드하면, AI가 콘텐츠·리뷰·가격·매출·운영 5개 영역을 자동으로 진단합니다. 업종별 벤치마크 데이터를 기반으로 경쟁 스토어와의 객관적 비교 분석 리포트를 즉시 발급합니다.</p>
+        <p>스토어 URL과 정산 엑셀만 업로드하면,<br class="mobile-br"> AI가 콘텐츠·리뷰·가격·매출·운영<br class="mobile-br"> 5개 영역을 자동으로 진단합니다.<br class="mobile-br"> 업종별 벤치마크 데이터를 기반으로<br class="mobile-br"> 경쟁 스토어와의 객관적 비교 분석 리포트를<br class="mobile-br"> 즉시 발급합니다.</p>
         <div class="service-tags">
           <span class="service-tag">콘텐츠 품질</span>
           <span class="service-tag">리뷰 분석</span>
@@ -865,7 +872,7 @@
       <div class="service-text">
         <div class="service-num">SERVICE 02</div>
         <h3>통합 대시보드</h3>
-        <p>각 플랫폼을 따로 볼 필요가 없습니다. 네이버·쿠팡·카카오·메타 전 채널 매출·지표를 한 화면에서 확인하고, 보고 싶은 지표만 선택해 나만의 대시보드를 구성합니다. 매출 급락·부정 리뷰 급증·재고 소진 임박 시 자동으로 알림을 보내드립니다.</p>
+        <p>각 플랫폼을 따로 볼 필요가 없습니다.<br class="mobile-br"> 네이버·쿠팡·카카오·메타 전 채널<br class="mobile-br"> 매출·지표를 한 화면에서 확인하고,<br class="mobile-br"> 보고 싶은 지표만 선택해<br class="mobile-br"> 나만의 대시보드를 구성합니다.<br class="mobile-br"> 매출 급락·부정 리뷰 급증·재고 소진 임박 시<br class="mobile-br"> 자동으로 알림을 보내드립니다.</p>
         <div class="service-tags">
           <span class="service-tag">통합 뷰</span>
           <span class="service-tag">커스텀 지표</span>
@@ -917,8 +924,8 @@
       <div class="service-text">
         <div class="service-num">SERVICE 03</div>
         <h3>바로 쓸 수 있는 AI 솔루션</h3>
-        <p>플랫폼별로 이미 검증된 AI 솔루션을 갖추고 있어, 별도 개발 없이 바로 도입할 수 있습니다. 기성 솔루션이기에 합리적인 비용으로 제공하며, 진단 결과에 따라 필요한 도구를 골라 즉시 적용하면 됩니다.</p>
-        <p>더 나아가, 우리 업체만의 상황에 딱 맞는 전략이 필요하다면 <strong>전담 AX 컨설턴트가 기성 솔루션을 우리 가게에 맞게 커스터마이징</strong>해 드립니다. 기성 솔루션의 합리적 비용 + 맞춤 컨설팅의 정밀함, 두 마리 토끼를 잡을 수 있습니다.</p>
+        <p>플랫폼별로 이미 검증된 AI 솔루션을 갖추고 있어,<br class="mobile-br"> 별도 개발 없이 바로 도입할 수 있습니다.<br class="mobile-br"> 기성 솔루션이기에 합리적인 비용으로 제공하며,<br class="mobile-br"> 진단 결과에 따라 필요한 도구를 골라<br class="mobile-br"> 즉시 적용하면 됩니다.</p>
+        <p>더 나아가, 우리 업체만의 상황에<br class="mobile-br"> 딱 맞는 전략이 필요하다면<br class="mobile-br"> <strong>전담 AX 컨설턴트가 기성 솔루션을<br class="mobile-br"> 우리 가게에 맞게 커스터마이징</strong>해 드립니다.<br class="mobile-br"> 기성 솔루션의 합리적 비용 +<br class="mobile-br"> 맞춤 컨설팅의 정밀함,<br class="mobile-br"> 두 마리 토끼를 잡을 수 있습니다.</p>
         <div class="service-tags">
           <span class="service-tag">즉시 도입 가능</span>
           <span class="service-tag">합리적 비용</span>
@@ -1037,7 +1044,7 @@
     <!-- Voucher Info -->
     <div class="voucher-section fade-up">
       <h3 class="voucher-title">정부 바우처로 더 합리적으로 시작하세요</h3>
-      <p class="voucher-desc">소상공인·중소기업 대상 정부 지원사업을 활용하면 도입 비용의 최대 75%까지 지원받을 수 있습니다.</p>
+      <p class="voucher-desc">소상공인·중소기업 대상<br class="mobile-br"> 정부 지원사업을 활용하면<br class="mobile-br"> 도입 비용의 최대 75%까지<br class="mobile-br"> 지원받을 수 있습니다.</p>
       <div class="voucher-grid">
         <div class="voucher-card">
           <div class="voucher-badge">최대 75% 지원</div>
@@ -1101,7 +1108,7 @@
 <section class="cta" id="contact">
   <div class="container">
     <h2 class="fade-up">지금 바로 내 가게를<br><span class="highlight">무료로 진단해보세요</span></h2>
-    <p class="fade-up">스토어 URL과 정산 데이터만 준비하시면 됩니다.<br>복잡한 설정 없이, 단 5분이면 AI 진단 리포트를 받아보실 수 있습니다.</p>
+    <p class="fade-up">스토어 URL과 정산 데이터만<br class="mobile-br"> 준비하시면 됩니다.<br>복잡한 설정 없이, 단 5분이면<br class="mobile-br"> AI 진단 리포트를 받아보실 수 있습니다.</p>
     <a href="https://vvd.bz/bg8v" class="btn-primary fade-up" target="_blank" rel="noopener" style="display:inline-block;">무료 진단 시작하기</a>
   </div>
 </section>
