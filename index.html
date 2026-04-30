@@ -91,7 +91,7 @@
       display: flex; align-items: center;
       background: linear-gradient(160deg, #0f0c29 0%, #1a1a2e 40%, #302b63 100%);
       overflow: hidden;
-      padding-top: 68px;
+      padding-top: 68px; /* adjusted to 56px on mobile via media query */
     }
     .hero::before {
       content: '';
@@ -330,6 +330,10 @@
       background: #fff; border-radius: 12px; padding: 20px;
       border: 1px solid #ece9ff; text-align: center;
     }
+    .plugin-logo {
+      width: 48px; height: 48px; object-fit: contain;
+      margin: 0 auto 10px; border-radius: 10px;
+    }
     .plugin-icon { font-size: 2rem; margin-bottom: 8px; }
     .plugin-name { font-size: 0.85rem; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
     .plugin-desc { font-size: 0.75rem; color: #888; }
@@ -408,6 +412,63 @@
     }
     .diff-card p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
 
+    /* ── Competitor & Voucher ── */
+    .competitor { background: #f8f7ff; }
+    .comp-table-wrap {
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      margin-bottom: 64px; border-radius: 16px;
+      border: 1px solid #ece9ff;
+    }
+    .comp-table {
+      width: 100%; min-width: 640px; border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .comp-table thead { background: #1a1a2e; }
+    .comp-table th {
+      padding: 16px 20px; color: #fff; font-weight: 600;
+      text-align: left; white-space: nowrap;
+    }
+    .comp-table th.comp-us { color: #c084fc; }
+    .comp-table td {
+      padding: 14px 20px; background: #fff;
+      border-bottom: 1px solid #f0eeff; vertical-align: top;
+    }
+    .comp-table td.comp-us {
+      color: #6c5ce7; font-weight: 600;
+      background: #faf8ff;
+    }
+    .comp-table td.comp-label {
+      font-weight: 700; color: #1a1a2e;
+      background: #f8f7ff; white-space: nowrap;
+    }
+    .comp-table tbody tr:last-child td { border-bottom: none; }
+
+    .voucher-section { text-align: center; }
+    .voucher-title {
+      font-size: 1.5rem; font-weight: 800; margin-bottom: 10px;
+    }
+    .voucher-desc {
+      font-size: 1rem; color: #555; margin-bottom: 36px;
+    }
+    .voucher-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .voucher-card {
+      background: #fff; border-radius: 16px; padding: 32px 24px;
+      border: 1px solid #ece9ff; text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .voucher-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(108,92,231,0.1); }
+    .voucher-badge {
+      display: inline-block;
+      padding: 4px 14px; border-radius: 100px;
+      background: linear-gradient(135deg, #6c5ce7, #a855f7);
+      color: #fff; font-size: 0.78rem; font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .voucher-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .voucher-card p { font-size: 0.9rem; color: #666; line-height: 1.7; }
+
     /* ── CTA ── */
     .cta {
       text-align: center; padding: 100px 0;
@@ -437,26 +498,163 @@
       .features-grid, .diff-grid { grid-template-columns: 1fr; }
       .phase-cards { grid-template-columns: 1fr; }
       .dash-features { grid-template-columns: repeat(2,1fr); }
-      .service-row, .service-row:nth-child(even) { flex-direction: column; }
+      .service-row, .service-row:nth-child(even) { flex-direction: column; gap: 32px; }
       .service-visual { width: 100%; }
     }
+
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .section-title { font-size: 1.8rem; }
+      /* Base */
+      .container { padding: 0 20px; }
+      .section { padding: 64px 0; }
+      .section-title { font-size: 1.6rem; }
+      .section-desc { font-size: 0.95rem; margin-bottom: 32px; }
+
+      /* Nav */
+      .nav-inner { height: 56px; }
       .nav-links { display: none; }
       .hamburger { display: block; }
       .nav-links.open {
         display: flex; flex-direction: column;
-        position: absolute; top: 68px; left: 0; right: 0;
-        background: #fff; padding: 24px; gap: 20px;
+        position: absolute; top: 56px; left: 0; right: 0;
+        background: #fff; padding: 16px 20px; gap: 4px;
         box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       }
-      .hero-stats { flex-direction: column; gap: 24px; }
-      .pain-grid { grid-template-columns: 1fr; }
-      .flow-track { flex-direction: column; gap: 32px; }
+      .nav-links.open li { width: 100%; }
+      .nav-links.open a {
+        display: block; padding: 14px 16px; border-radius: 10px;
+        font-size: 1rem; min-height: 48px;
+        display: flex; align-items: center;
+      }
+      .nav-links.open a:hover { background: #f5f3ff; }
+      .nav-links.open .nav-cta {
+        margin-top: 8px; justify-content: center;
+        padding: 14px 24px;
+      }
+
+      /* Hero */
+      .hero { min-height: auto; padding: 80px 0 56px; }
+      .hero h1 { font-size: 1.85rem; line-height: 1.35; margin-bottom: 16px; }
+      .hero-badge { font-size: 0.78rem; padding: 5px 12px; margin-bottom: 16px; }
+      .hero-sub { font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px; }
+      .hero-actions { flex-direction: column; gap: 12px; }
+      .btn-primary, .btn-outline {
+        width: 100%; text-align: center; padding: 16px 24px;
+        font-size: 1rem; min-height: 52px;
+      }
+      .hero-stats {
+        flex-direction: row; gap: 0; margin-top: 40px;
+        justify-content: space-around;
+      }
+      .hero-stats > div { text-align: center; flex: 1; }
+      .hero-stat-value { font-size: 1.5rem; }
+      .hero-stat-label { font-size: 0.75rem; }
+
+      /* Pain */
+      .pain-grid { grid-template-columns: 1fr; gap: 16px; }
+      .pain-card { padding: 24px 20px; }
+      .pain-icon { width: 44px; height: 44px; font-size: 1.2rem; margin-bottom: 14px; }
+      .pain-card h3 { font-size: 1.05rem; }
+      .pain-card p { font-size: 0.9rem; }
+
+      /* Features */
+      .features-grid { gap: 16px; }
+      .feature-card { padding: 24px 20px; }
+      .feature-card h3 { font-size: 1.15rem; }
+      .feature-card p { font-size: 0.9rem; }
+
+      /* Flow */
+      .flow-track { flex-direction: column; gap: 0; }
       .flow-track::before { display: none; }
-      .dash-features { grid-template-columns: 1fr; }
+      .flow-step {
+        display: flex; align-items: flex-start; gap: 16px;
+        text-align: left; padding: 0 0 24px 0;
+        position: relative;
+      }
+      .flow-step::before {
+        content: '';
+        position: absolute; left: 27px; top: 56px; bottom: 0;
+        width: 2px; background: rgba(108,92,231,0.2);
+      }
+      .flow-step:last-child::before { display: none; }
+      .flow-dot {
+        width: 56px; height: 56px; min-width: 56px;
+        border-radius: 14px; margin: 0; font-size: 1.2rem;
+      }
+      .flow-step-tag { margin-bottom: 2px; }
+      .flow-step h4 { font-size: 0.95rem; margin-bottom: 4px; }
+      .flow-step p { font-size: 0.82rem; }
+      .flow-note { padding: 16px 20px; font-size: 0.85rem; }
+
+      /* Services */
+      .service-row { margin-bottom: 48px; gap: 24px; }
+      .service-text h3 { font-size: 1.35rem; }
+      .service-text p { font-size: 0.92rem; margin-bottom: 16px; }
+      .service-visual { padding: 20px; min-height: auto; }
+      .service-tags { gap: 8px; }
+      .service-tag { font-size: 0.78rem; padding: 5px 12px; }
+
+      /* Diag table: horizontal scroll wrapper */
+      .diag-table { font-size: 0.78rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .diag-table thead, .diag-table tbody, .diag-table tr { display: table; width: 100%; table-layout: fixed; }
+      .diag-table th, .diag-table td { padding: 8px 10px; word-break: keep-all; }
+
+      /* Dashboard mock */
+      .dash-mock { padding: 16px; }
+      .dash-metric { padding: 10px; }
+      .dash-metric-value { font-size: 1.1rem; }
+
+      /* Plugins */
+      .plugin-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .plugin-card { padding: 16px 12px; }
+      .plugin-icon { font-size: 1.5rem; }
+      .plugin-name { font-size: 0.8rem; }
+      .plugin-desc { font-size: 0.7rem; }
+
+      /* Diff */
+      .diff-grid { gap: 16px; }
+      .diff-card { padding: 24px 20px; }
+      .diff-card h4 { font-size: 1rem; }
+      .diff-card p { font-size: 0.9rem; }
+
+      /* Phases */
+      .phase-cards { gap: 16px; }
+      .phase-card { padding: 28px 24px; }
+      .phase-card h3 { font-size: 1.15rem; }
+      .phase-list li { font-size: 0.9rem; }
+
+      /* Dashboard features */
+      .dash-features { grid-template-columns: 1fr; gap: 16px; }
+      .dash-feat { padding: 24px 16px; }
+
+      /* Competitor & Voucher */
+      .comp-table-wrap { margin-bottom: 40px; }
+      .comp-table { font-size: 0.82rem; }
+      .comp-table th, .comp-table td { padding: 12px 14px; }
+      .voucher-title { font-size: 1.25rem; }
+      .voucher-grid { grid-template-columns: 1fr; gap: 16px; }
+      .voucher-card { padding: 24px 20px; }
+
+      /* CTA */
+      .cta { padding: 64px 0; }
+      .cta h2 { font-size: 1.6rem; }
+      .cta p { font-size: 0.95rem; margin-bottom: 28px; }
+      .cta .btn-primary { width: 100%; padding: 16px 24px; font-size: 1rem; }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 380px) {
+      .container { padding: 0 16px; }
+      .hero h1 { font-size: 1.55rem; }
+      .hero-stat-value { font-size: 1.3rem; }
+      .section-title { font-size: 1.4rem; }
+      .feature-card { padding: 20px 16px; }
+      .feature-card h3 { font-size: 1.05rem; }
+      .pain-card { padding: 20px 16px; }
+      .diff-card { padding: 20px 16px; }
+      .phase-card { padding: 24px 20px; }
+      .service-text h3 { font-size: 1.2rem; }
       .plugin-grid { grid-template-columns: 1fr; }
+      .cta h2 { font-size: 1.35rem; }
     }
   </style>
 </head>
@@ -471,6 +669,7 @@
       <li><a href="#features">핵심 가치</a></li>
       <li><a href="#flow">서비스 플로우</a></li>
       <li><a href="#services">제공 서비스</a></li>
+      <li><a href="#competitor">경쟁사 비교</a></li>
       <li><a href="#phases">로드맵</a></li>
       <li><a href="#contact" class="nav-cta">무료 진단 시작</a></li>
     </ul>
@@ -562,8 +761,8 @@
       </div>
       <div class="feature-card fade-up">
         <div class="feature-tag">AX CONSULTING</div>
-        <h3>AI 실행 도구로 완성하는 즉각적 솔루션</h3>
-        <p>진단은 시작일 뿐입니다. 도출된 핵심 과제는 플랫폼별 AI 플러그인으로 즉시 실행하며, 고도화된 전략이 필요할 땐 AX 전문 컨설팅을 연계합니다.</p>
+        <h3>기성 솔루션 + 맞춤 컨설팅</h3>
+        <p>이미 만들어진 AI 솔루션을 바로 도입해 합리적인 비용으로 시작하고, 우리 가게만의 전략이 필요할 땐 AX 전문 컨설턴트가 맞춤 커스터마이징까지 지원합니다.</p>
       </div>
     </div>
   </div>
@@ -592,13 +791,13 @@
         <div class="flow-dot">📋</div>
         <div class="flow-step-tag">ANALYZE</div>
         <h4>진단 리포트 발급</h4>
-        <p>실시간 핵심 과제 도출 및 최적의 AI 플러그인 매칭</p>
+        <p>실시간 핵심 과제 도�� 및 최적의 AI 솔루션 매칭</p>
       </div>
       <div class="flow-step fade-up">
         <div class="flow-dot">🚀</div>
         <div class="flow-step-tag">EXECUTE</div>
         <h4>AI 솔루션 실행</h4>
-        <p>추천된 플러그인 즉시 적용 및 성과 개선</p>
+        <p>검증된 기성 솔루션 즉시 적용 및 성과 개선</p>
       </div>
       <div class="flow-step fade-up">
         <div class="flow-dot">📈</div>
@@ -608,7 +807,7 @@
       </div>
     </div>
     <div class="flow-note fade-up">
-      🔄 <strong>AX 고도화 루프</strong> — 맞춤형 플러그인 구축 · 대시보드 재구성 · 휴먼 컨설팅 연계로 지속적인 스케일업 지원
+      🔄 <strong>AX 고도화 루프</strong> — 기성 솔루션 커스터마이징 · 대시보드 재구성 · 전담 컨설턴트 연계로 지속적인 스케일업 지원
     </div>
   </div>
 </section>
@@ -702,40 +901,41 @@
       </div>
     </div>
 
-    <!-- Service 3: AI 플러그인 -->
+    <!-- Service 3: 맞춤형 AI 솔루션 -->
     <div class="service-row fade-up">
       <div class="service-text">
         <div class="service-num">SERVICE 03</div>
-        <h3>AI 플러그인</h3>
-        <p>진단에서 발견된 문제를 플러그인으로 바로 실행합니다. 플랫폼별 맞춤 AI 도구가 키워드 최적화부터 광고 예산 최적화까지 즉각적인 솔루션을 제공합니다. 플러그인 형태로 참여자 니즈에 맞게 다양하게 확장 가능합니다.</p>
+        <h3>바로 쓸 수 있는 AI 솔루션</h3>
+        <p>플랫폼별로 이미 검증된 AI 솔루션을 갖추고 있어, 별도 개발 없이 바로 도입할 수 있습니다. 기성 솔루션이기에 합리적인 비용으로 제공하며, 진단 결과에 따라 필요한 도구를 골라 즉시 적용하면 됩니다.</p>
+        <p>더 나아가, 우리 업체만의 상황에 딱 맞는 전략이 필요하다면 <strong>전담 AX 컨설턴트가 기성 솔루션을 우리 가게에 맞게 커스터마이징</strong>해 드립니다. 기성 솔루션의 합리적 비용 + 맞춤 컨설팅의 정밀함, 두 마리 토끼를 잡을 수 있습니다.</p>
         <div class="service-tags">
-          <span class="service-tag">네이버</span>
-          <span class="service-tag">쿠팡</span>
-          <span class="service-tag">카카오</span>
-          <span class="service-tag">메타</span>
+          <span class="service-tag">즉시 도입 가능</span>
+          <span class="service-tag">합리적 비용</span>
+          <span class="service-tag">맞춤 커스터마이징</span>
+          <span class="service-tag">AX 컨설턴트 연계</span>
         </div>
       </div>
       <div class="service-visual">
         <div class="plugin-grid">
           <div class="plugin-card">
-            <div class="plugin-icon">🟢</div>
+            <img class="plugin-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Naver_logo_initial.svg/600px-Naver_logo_initial.svg.png" alt="네이버 로고">
             <div class="plugin-name">네이버</div>
-            <div class="plugin-desc">상품 설명 생성 · 키워드 최적화<br>리뷰 자동화 · 광고 ROAS</div>
+            <div class="plugin-desc">상품 설명 자동 생성 · 키워드 최적화<br>리뷰 관리 · 광고 효율 분석</div>
           </div>
           <div class="plugin-card">
-            <div class="plugin-icon">🟠</div>
+            <img class="plugin-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Coupang_logo.svg/600px-Coupang_logo.svg.png" alt="쿠팡 로고">
             <div class="plugin-name">쿠팡</div>
-            <div class="plugin-desc">판매 예측 · 재고 최적화<br>가격 경쟁력 분석</div>
+            <div class="plugin-desc">판매 예측 · 재고 자동 관리<br>가격 경쟁력 분석</div>
           </div>
           <div class="plugin-card">
-            <div class="plugin-icon">🟡</div>
+            <img class="plugin-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/KakaoTalk_logo.svg/600px-KakaoTalk_logo.svg.png" alt="카카오 로고">
             <div class="plugin-name">카카오</div>
-            <div class="plugin-desc">문의 자동 응대 · 알림톡 자동화<br>단골 리텐션</div>
+            <div class="plugin-desc">고객 문의 자동 응대 · 알림톡<br>단골 고객 관리</div>
           </div>
           <div class="plugin-card">
-            <div class="plugin-icon">🔵</div>
+            <img class="plugin-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/600px-2021_Facebook_icon.svg.png" alt="메타 로고">
             <div class="plugin-name">메타</div>
-            <div class="plugin-desc">광고 소재 생성 · 타깃 분석<br>예산 최적화</div>
+            <div class="plugin-desc">광고 소재 자동 생성 · 타깃 분석<br>광고 예산 최적화</div>
           </div>
         </div>
       </div>
@@ -756,7 +956,7 @@
       </div>
       <div class="diff-card fade-up">
         <h4>🤖 AI + 휴먼 하이브리드</h4>
-        <p>AI 플러그인으로 즉시 실행하고, 한계에 부딪힐 땐 전담 AX 컨설턴트가 밀착 지원하는 독보적인 하이브리드 솔루션입니다.</p>
+        <p>이미 만들어진 AI 솔루션으로 빠르게 시작하고, 우리 가게에 딱 맞는 전략이 필요하면 전담 AX ���설턴트가 커스터마이징까지 ��착 지원합니다.</p>
       </div>
       <div class="diff-card fade-up">
         <h4>📊 객관적 벤치마크</h4>
@@ -764,7 +964,85 @@
       </div>
       <div class="diff-card fade-up">
         <h4>⚡ 진단에서 실행까지</h4>
-        <p>분석 리포트만 던져주는 것이 아니라, 도출된 과제를 AI 플러그인으로 즉시 실행까지 이어가는 End-to-End 솔루션입니다.</p>
+        <p>분석 리포트만 던져주는 것이 아니라, 검증된 AI 솔루션으로 ��시 실행까지 이어가는 End-to-End 솔루션입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Competitor & Voucher -->
+<section class="section competitor" id="competitor">
+  <div class="container">
+    <div class="section-label">MARKET</div>
+    <h2 class="section-title fade-up">경쟁 서비스 비교 &<br><span class="highlight">정부 지원사업 활용</span></h2>
+    <p class="section-desc fade-up">기존 솔루션들과 어떻게 다른지, 그리고 정부 바우처를 통해 얼마나 합리적으로 도입할 수 있는지 확인하세요.</p>
+
+    <!-- Competitor Comparison Table -->
+    <div class="comp-table-wrap fade-up">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th class="comp-us">SME AX 플랫폼</th>
+            <th>라플라스</th>
+            <th>사방넷</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="comp-label">핵심 기능</td>
+            <td class="comp-us">통합 진단 + AI 솔루션 + AX 컨설팅</td>
+            <td>이커머스 데이터 분석 · AI 리포트</td>
+            <td>오픈마켓 통합 주문·상품·재고 관리</td>
+          </tr>
+          <tr>
+            <td class="comp-label">AI 솔루션 실행</td>
+            <td class="comp-us">기성 솔루션 즉시 도입 + 커스터마이징</td>
+            <td>분석 리포트 제공 (실행은 별도)</td>
+            <td>미제공 (관리 중심)</td>
+          </tr>
+          <tr>
+            <td class="comp-label">멀티 플랫폼</td>
+            <td class="comp-us">네이버·쿠팡·카카오·메타 통합</td>
+            <td>네이버·쿠팡 등 분석</td>
+            <td>140여개 쇼핑몰 연동 (주문·재고)</td>
+          </tr>
+          <tr>
+            <td class="comp-label">컨설팅 연계</td>
+            <td class="comp-us">전담 AX 컨설턴트 밀착 지원</td>
+            <td>미제공</td>
+            <td>미제공</td>
+          </tr>
+          <tr>
+            <td class="comp-label">정부 바우처</td>
+            <td class="comp-us">클라우드·AI 바우처 신청 가능</td>
+            <td>클라우드 바우처 등록 (최대 75% 지원)</td>
+            <td>미확인</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Voucher Info -->
+    <div class="voucher-section fade-up">
+      <h3 class="voucher-title">정부 바우처로 더 합리적으로 시작하세요</h3>
+      <p class="voucher-desc">소상공인·중소기업 대상 정부 지원사업을 활용하면 도입 비용의 최대 75%까지 지원받을 수 있습니다.</p>
+      <div class="voucher-grid">
+        <div class="voucher-card">
+          <div class="voucher-badge">최대 75% 지원</div>
+          <h4>클라우드 바우처</h4>
+          <p>과기정통부·NIPA 주관<br>최대 <strong>6,910만원</strong> 지원<br>기업 부담 약 20% 수준</p>
+        </div>
+        <div class="voucher-card">
+          <div class="voucher-badge">최대 2억원</div>
+          <h4>AI 바우처</h4>
+          <p>과기정통부·NIPA 주관<br>AI 솔루션 도입 비용 지원<br>중소·중견기업 대상</p>
+        </div>
+        <div class="voucher-card">
+          <div class="voucher-badge">최대 7,500만원</div>
+          <h4>데이터 바우처</h4>
+          <p>한국데이터산업진흥원 주관<br>데이터 수집·분석 비용 지원<br>데이터 기반 경영 혁신</p>
+        </div>
       </div>
     </div>
   </div>
@@ -788,9 +1066,9 @@
       </div>
       <div class="phase-card fade-up">
         <div class="phase-tag">PHASE 2 — BETA</div>
-        <h3>대시보드 + AI 플러그인</h3>
+        <h3>대��보드 + AI 솔루션</h3>
         <ul class="phase-list">
-          <li>대시보드 + 플러그인 출시</li>
+          <li>대시보드 + AI 솔루션 출시</li>
           <li>공식 API 파트너 등록</li>
           <li>구독 수익 모델 적용</li>
         </ul>
