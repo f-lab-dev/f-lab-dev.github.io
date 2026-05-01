@@ -417,6 +417,68 @@
     }
     .diff-card p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
 
+    /* ── Consultant ── */
+    .consultant {
+      background: linear-gradient(160deg, #0f0c29, #1a1a2e 50%, #302b63);
+      color: #fff;
+    }
+    .consultant .section-desc { color: rgba(255,255,255,0.55); }
+    .consul-layout {
+      display: flex; gap: 64px; align-items: center;
+    }
+    .consul-profile {
+      flex: 0 0 320px; text-align: center;
+    }
+    .consul-avatar {
+      width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 24px;
+      background: linear-gradient(135deg, #6c5ce7, #a855f7);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; color: #fff;
+      box-shadow: 0 8px 40px rgba(108,92,231,0.4);
+    }
+    .consul-name { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .consul-role { font-size: 0.9rem; color: #a78bfa; font-weight: 600; }
+    .consul-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+    .consul-badge-item {
+      padding: 5px 14px; border-radius: 100px;
+      background: rgba(108,92,231,0.15); border: 1px solid rgba(108,92,231,0.3);
+      font-size: 0.78rem; color: #a78bfa; font-weight: 600;
+    }
+    .consul-body { flex: 1; }
+    .consul-intro {
+      font-size: 1.5rem; font-weight: 800; line-height: 1.4;
+      margin-bottom: 32px; color: #fff;
+    }
+    .consul-intro span {
+      background: linear-gradient(135deg, #a78bfa, #c084fc);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .consul-tracks { display: flex; flex-direction: column; gap: 20px; }
+    .consul-track {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 24px 28px; border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+    .consul-track:hover { background: rgba(255,255,255,0.08); }
+    .consul-track-icon {
+      width: 48px; height: 48px; min-width: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      background: rgba(108,92,231,0.2);
+    }
+    .consul-track h4 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .consul-track p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+    .consul-stat-row {
+      display: flex; gap: 32px; margin-top: 32px;
+      padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .consul-stat { text-align: center; flex: 1; }
+    .consul-stat-value { font-size: 1.6rem; font-weight: 800; color: #a78bfa; }
+    .consul-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 4px; }
+
     /* ── Competitor & Voucher ── */
     .competitor { background: #f8f7ff; }
     .comp-table-wrap {
@@ -634,6 +696,19 @@
       .dash-features { grid-template-columns: 1fr; gap: 16px; }
       .dash-feat { padding: 24px 16px; }
 
+      /* Consultant */
+      .consul-layout { flex-direction: column; gap: 32px; }
+      .consul-profile { flex: none; width: 100%; }
+      .consul-avatar { width: 120px; height: 120px; font-size: 2.8rem; }
+      .consul-name { font-size: 1.2rem; }
+      .consul-intro { font-size: 1.2rem; margin-bottom: 24px; }
+      .consul-track { padding: 20px; gap: 14px; }
+      .consul-track-icon { width: 40px; height: 40px; min-width: 40px; font-size: 1.1rem; }
+      .consul-track h4 { font-size: 0.95rem; }
+      .consul-track p { font-size: 0.85rem; }
+      .consul-stat-row { gap: 16px; }
+      .consul-stat-value { font-size: 1.3rem; }
+
       /* Competitor & Voucher */
       .comp-table-wrap { margin-bottom: 40px; }
       .comp-table { font-size: 0.82rem; }
@@ -677,6 +752,7 @@
       <li><a href="#features">핵심 가치</a></li>
       <li><a href="#flow">서비스 플로우</a></li>
       <li><a href="#services">제공 서비스</a></li>
+      <li><a href="#consultant">컨설턴트</a></li>
       <li><a href="#competitor">경쟁사 비교</a></li>
       <li><a href="#phases">로드맵</a></li>
       <li><a href="https://vvd.bz/bg8v" class="nav-cta" target="_blank" rel="noopener">무료 진단 시작</a></li>
@@ -954,6 +1030,70 @@
             <img class="plugin-logo" src="assets/logos/meta.svg" alt="메타 로고">
             <div class="plugin-name">메타</div>
             <div class="plugin-desc">광고 소재 자동 생성 · 타깃 분석<br>광고 예산 최적화</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Consultant -->
+<section class="section consultant" id="consultant">
+  <div class="container">
+    <div class="section-label" style="color:#a78bfa;">LEAD CONSULTANT</div>
+    <h2 class="section-title fade-up" style="color:#fff;">기술을 아는 사람이<br><span style="background:linear-gradient(135deg,#a78bfa,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">직접 비즈니스를 바꿉니다</span></h2>
+    <p class="section-desc fade-up">분석만 하는 컨설턴트가 아닙니다.<br class="mobile-br"> 직접 만들고, 자동화하고,<br class="mobile-br"> 성장시켜본 사람이 함께합니다.</p>
+    <div class="consul-layout fade-up">
+      <div class="consul-profile">
+        <div class="consul-avatar">P</div>
+        <div class="consul-name">박중수</div>
+        <div class="consul-role">AX 대표 컨설턴트</div>
+        <div class="consul-badges">
+          <span class="consul-badge-item">Ex-네이버 개발자</span>
+          <span class="consul-badge-item">창업 경험</span>
+          <span class="consul-badge-item">AX 전문가</span>
+        </div>
+      </div>
+      <div class="consul-body">
+        <div class="consul-intro">
+          리포트를 건네는 것이 아니라,<br>
+          <span>직접 시스템을 만들어<br class="mobile-br"> 비즈니스에 꽂아드립니다.</span>
+        </div>
+        <div class="consul-tracks">
+          <div class="consul-track">
+            <div class="consul-track-icon">💻</div>
+            <div>
+              <h4>네이버 출신 개발자, AI 자동화 전문</h4>
+              <p>대한민국 최대 IT 기업에서<br class="mobile-br"> 기술을 다듬었습니다.<br class="mobile-br"> 단순 분석에 그치지 않고,<br class="mobile-br"> 반복 업무를 AI로 직접 자동화해<br class="mobile-br"> 실질적 비용 절감을 만들어냅니다.</p>
+            </div>
+          </div>
+          <div class="consul-track">
+            <div class="consul-track-icon">🏢</div>
+            <div>
+              <h4>수백억 규모 기업의 AX를 설계하다</h4>
+              <p>대기업의 복잡한 업무 프로세스를<br class="mobile-br"> AI로 전환한 경험이 있습니다.<br class="mobile-br"> 현장의 저항과 기술의 한계를 모두 겪었기에,<br class="mobile-br"> 실현 가능한 전략만 제안합니다.</p>
+            </div>
+          </div>
+          <div class="consul-track">
+            <div class="consul-track-icon">🚀</div>
+            <div>
+              <h4>2년 만에 매출 20억, 운영 인력 단 2명</h4>
+              <p>직접 창업해 2년 만에<br class="mobile-br"> 연 매출 20억을 달성했습니다.<br class="mobile-br"> 핵심은 자동화 — 주문·CS·정산·마케팅을<br class="mobile-br"> 시스템화해 운영 인력 2명만으로<br class="mobile-br"> 서비스를 운영한 실전 노하우를 갖고 있습니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="consul-stat-row">
+          <div class="consul-stat">
+            <div class="consul-stat-value">20억+</div>
+            <div class="consul-stat-label">창업 매출 달성</div>
+          </div>
+          <div class="consul-stat">
+            <div class="consul-stat-value">수백억</div>
+            <div class="consul-stat-label">AX 프로젝트 규모</div>
+          </div>
+          <div class="consul-stat">
+            <div class="consul-stat-value">2명</div>
+            <div class="consul-stat-label">자동화 운영 인력</div>
           </div>
         </div>
       </div>
